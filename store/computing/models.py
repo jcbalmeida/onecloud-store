@@ -31,6 +31,7 @@ class Instance(models.Model):
     v_cpu = models.IntegerField()
     memory = models.FloatField()
     disk_space = models.FloatField()
+    operating_system = models.ManyToManyField(OperatingSystem)
 
     def __str__(self):
         return self.name
@@ -39,6 +40,7 @@ class Instance(models.Model):
 class ServerPlan(models.Model):
     name = models.CharField(max_length=50)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE)
+    instance = models.ForeignKey(Instance, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
