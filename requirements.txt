@@ -1,0 +1,4 @@
+Django==1.9.1
+argparse==1.2.1
+djangorestframework==3.3.2
+wsgiref==0.1.2
