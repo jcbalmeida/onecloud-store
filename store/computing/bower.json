@@ -1,0 +1,22 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/jcbalmeida/onecloud-store",
+  "authors": [
+    "João Carlos <jcbalmeida@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material-design-lite": "~0.4.3"
+  }
+}

@@ -17,7 +17,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from store.computing import api
-
+from django.views.generic import TemplateView
+from django.conf import settings
 
 router = routers.DefaultRouter()
 router.register(r'providers', api.ProviderViewSet)
@@ -27,6 +28,15 @@ router.register('instances', api.InstanceViewSet)
 router.register('plans', api.ServerPlanViewSet)
 
 urlpatterns = [
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(
+        '^static/(?P<path>.*)',
+        'django.views.static.serve',
+        {
+            'document_root': settings.STATIC_ROOT,
+            'show_indexes': True
+        }
+    ),
     url(r'^api/', include(router.urls)),
     url(r'^admin/', admin.site.urls),
     url(
