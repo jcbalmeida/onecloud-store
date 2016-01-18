@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,17 +14,60 @@
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header">
                 <div class="mdl-layout__header-row">
-                    <span class="mdl-layout-title">Home</span>
+                    <span class="mdl-layout-title">OneCloud Store - catálogo</span>
                 </div>
             </header>
-            <main class="mdl-layout__content">
+            <main class="mdl-layout__content" ng-controller="AppController">
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--4-col">
-                        <h2>Filtros</h2>
+                        <h3>Filtros</h3>
+                        <p>
+                            Sistema operacional:
+                            <label for="" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                ng-repeat="os in filters.os">
+                                <input type="checkbox" class="mdl-checkbox__input" ng-model="os.checked">
+                                <span class="mdl-checkbox__label">{$ os.label $}</span>
+                            </label>    
+                        </p>
+                        <p>
+                            CPU's:
+                            <label ng-repeat="cpu in filters.cpu" 
+                                class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                <input type="checkbox" class="mdl-checkbox__input" ng-model="cpu.checked">
+                                <span class="mdl-checkbox__label">{$ cpu.value $}</span>
+                            </label>
+                        </p>
+                        <p>
+                            Memória:
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                ng-repeat="memory in filters.memory">
+                                <input type="checkbox" class="mdl-checkbox__input" ng-model="memory.checked">
+                                <span class="mdl-checkbox__label">{$ memory.value $} GB</span>
+                            </label>    
+                        </p>
+                        <p>
+                            Armazenamento:
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                ng-repeat="disk in filters.disk">
+                                <input type="checkbox" class="mdl-checkbox__input" ng-model="disk.checked">
+                                <span class="mdl-checkbox__label">{$ disk.value $} GB</span>
+                            </label>    
+                        </p>
+                        <p>
+                            Provedor:
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                ng-repeat="provider in filters.provider">
+                                <input type="checkbox" class="mdl-checkbox__input" ng-model="provider.checked">
+                                <span class="mdl-checkbox__label">{$ provider.label $}</span>
+                            </label>
+                        </p>
+                        
+                        
+                        
                     </div>
                     <div class="mdl-cell mdl-cell--8-col">
                         <h2>Compare</h2>
-                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                             <thead>
                                 <tr>
                                     <th class="mdl-data-table__cell--non-numeric">Provedor</th>
@@ -36,21 +79,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">AWS</td>
-                                    <td class="mdl-data-table__cell--non-numeric">t2.micro - linux</td>
-                                    <td>1</td>
-                                    <td>2 BG</td>
-                                    <td>8 GB</td>
-                                    <td>0.05</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">D. Ocean</td>
-                                    <td class="mdl-data-table__cell--non-numeric">windows - basico</td>
-                                    <td>1</td>
-                                    <td>2 GB</td>
-                                    <td>8 GB</td>
-                                    <td>0.10</td>
+                                <tr data-ng-repeat="plan in filtered = (plans | planFilter:filters)">
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        {$ plan.provider.name $}
+                                    </td>
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        {$ plan.name $}
+                                    </td>
+                                    <td>
+                                        {$ plan.instance.v_cpu $}
+                                    </td>
+                                    <td>
+                                        {$ plan.instance.memory $} GB
+                                    </td>
+                                    <td>
+                                        {$ plan.instance.disk_space $} GB
+                                    </td>
+                                    <td>
+                                        {$ plan.price | currency $}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

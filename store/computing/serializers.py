@@ -19,15 +19,20 @@ class OsFamilySerializer(serializers.ModelSerializer):
 
 
 class OperatingSystemSerializer(serializers.ModelSerializer):
+    family = OsFamilySerializer()
     class Meta:
         model = OperatingSystem
 
 
 class InstanceSerializer(serializers.ModelSerializer):
+    operating_system = OperatingSystemSerializer(many=True)
+
     class Meta:
         model = Instance
 
 
 class ServerPlanSerializer(serializers.ModelSerializer):
+    instance = InstanceSerializer()
+    provider = ProviderSerializer()
     class Meta:
         model = ServerPlan

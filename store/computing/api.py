@@ -36,5 +36,5 @@ class InstanceViewSet(viewsets.ModelViewSet):
 
 
 class ServerPlanViewSet(viewsets.ModelViewSet):
-    queryset = ServerPlan.objects.all()
+    queryset = ServerPlan.objects.all().order_by('price')
     serializer_class = ServerPlanSerializer

@@ -58,9 +58,6 @@ docs/_build/
 # PyBuilder
 target/
 
-# db
-*.sqlite3
-
 # bower e node
 bower_components/
 node_modules/
