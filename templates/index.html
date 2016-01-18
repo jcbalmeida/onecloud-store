@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <link rel="stylesheet" href="static/css/material.min.css">
-</head>
-<body ng-app="app">
-    <script src="static/js/angular.min.js"></script>
-    <script src="static/js/material.min.js"></script>
-    <script src="static/js/angular-material-design-lite.min.js"></script>
-    <script src="static/js/app.js"></script>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">Home</span>
-            </div>
-        </header>
-        <main class="mdl-layout__content">
-            
-        </main>
-    </div>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <link rel="stylesheet" href="static/css/material.min.css">
+    </head>
+    <body ng-app="app">
+        <script src="static/js/angular.min.js"></script>
+        <script src="static/js/material.min.js"></script>
+        <script src="static/js/app.js"></script>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">Home</span>
+                </div>
+            </header>
+            <main class="mdl-layout__content">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <h2>Filtros</h2>
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col">
+                        <h2>Compare</h2>
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric">Provedor</th>
+                                    <th class="mdl-data-table__cell--non-numeric">Produto</th>
+                                    <th>vCPU</th>
+                                    <th>Memória</th>
+                                    <th>Disco</th>
+                                    <th>$/hora</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">AWS</td>
+                                    <td class="mdl-data-table__cell--non-numeric">t2.micro - linux</td>
+                                    <td>1</td>
+                                    <td>2 BG</td>
+                                    <td>8 GB</td>
+                                    <td>0.05</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">D. Ocean</td>
+                                    <td class="mdl-data-table__cell--non-numeric">windows - basico</td>
+                                    <td>1</td>
+                                    <td>2 GB</td>
+                                    <td>8 GB</td>
+                                    <td>0.10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
 </html>
